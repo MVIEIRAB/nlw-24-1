@@ -8,12 +8,12 @@ datasource db {
 }
 
 model Poll {
-  id         String       @id @default(uuid())
-  title      String
-  createdAt  DateTime     @default(now())
-  updatedAt  DateTime     @default(now())
-  PollOption PollOption[]
-  vote       Vote[]
+  id        String       @id @default(uuid())
+  title     String
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @default(now())
+  options   PollOption[]
+  vote      Vote[]
 }
 
 model PollOption {

@@ -1,6 +1,6 @@
 import z from "zod";
 import { FastifyInstance } from "fastify";
-import { prisma } from "../lib/prisma";
+import { prisma } from "../../lib/prisma";
 
 export async function createPoll(app: FastifyInstance) {
   app.post("/polls", async (request, response) => {
@@ -14,7 +14,7 @@ export async function createPoll(app: FastifyInstance) {
     const poll = await prisma.poll.create({
       data: {
         title,
-        PollOption: {
+        options: {
           createMany: {
             data: options.map((option) => ({
               title: option,
